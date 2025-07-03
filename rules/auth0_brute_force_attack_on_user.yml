@@ -1,0 +1,19 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Auth0 Brute Force Attack on User
+description: |-
+  Detect a potential brute force attack by monitoring failed login attempts from the same Auth0 user.
+enabled: true
+severity: Medium
+query_text: |-
+  %ingest.source_type:auth0
+  data.type:(fp fu)
+  | groupbycount(data.user_id)
+  | where @q.count > 5
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- medium_severity_alerts
+tags:
+- tactics.ta0006.credential_access
+- techniques.t1110.brute_force
+- source.auth0

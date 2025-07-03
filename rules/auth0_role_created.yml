@@ -1,0 +1,22 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Auth0 Role Created
+description: |-
+  Detect when a role is created in Auth0. Roles can be used to grant
+  specific permissions and should be monitored for potential privilege
+  escalation.
+enabled: true
+severity: High
+query_text: |-
+  %ingest.source_type:auth0
+  data.description:'Create a role'
+  data.details.request.channel:'https://manage.auth0.com'
+  | groupbycount(data.user_id)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- high_severity_alerts
+tags:
+- tactics.ta0004.privilege_escalation
+- techniques.t1078.valid_accounts
+- source.auth0

@@ -1,0 +1,22 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Auth0 Integration Installed
+description: |-
+  Detect when an integration is installed in Auth0, which may
+  introduce security risks.
+enabled: true
+severity: Informational
+query_text: |-
+  %ingest.source_type:auth0
+  data.description:'Install an available integration'
+  data.details.request.path:/api/v2/integrations/installed
+  data.details.request.channel:'https://manage.auth0.com'
+  | groupbycount(data.user_id)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- informational_severity_alerts
+tags:
+- tactics.ta0002.execution
+- techniques.t1059.command_and_scripting_interpreter
+- source.auth0

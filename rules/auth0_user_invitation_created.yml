@@ -1,0 +1,19 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Auth0 User Invitation Created
+description: |-
+  Detect when user invitations are created in Auth0 for organizations or tenants.
+enabled: true
+severity: Informational
+query_text: |-
+  %ingest.source_type:auth0
+  data.details.request.path:(/api/v2/tenants/invitations /api/v2/organizations/*/invitations)
+  | groupbycount(data.user_id)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- informational_severity_alerts
+tags:
+- tactics.ta0001.initial_access
+- techniques.t1078.valid_accounts
+- source.auth0

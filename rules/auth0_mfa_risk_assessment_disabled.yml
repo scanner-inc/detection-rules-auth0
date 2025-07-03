@@ -1,0 +1,23 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Auth0 MFA Risk Assessment Disabled
+description: |-
+  Detect when MFA risk assessment is disabled in Auth0. This can weaken
+  security controls by reducing adaptive authentication capabilities.
+enabled: true
+severity: High
+query_text: |-
+  %ingest.source_type:auth0
+  data.description:'Updates risk assessment configs'
+  data.details.request.path:/api/v2/risk-assessment/config
+  data.details.request.body.AfterAuthentication:false
+  data.details.request.channel:'https://manage.auth0.com'
+  | groupbycount(data.user_id)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- high_severity_alerts
+tags:
+- tactics.ta0005.defense_evasion
+- techniques.t1562.impair_defenses
+- source.auth0

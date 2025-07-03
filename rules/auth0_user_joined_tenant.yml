@@ -1,0 +1,22 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Auth0 User Joined Tenant
+description: |-
+  Detect when a user joins an Auth0 tenant.
+enabled: true
+severity: Informational
+query_text: |-
+  %ingest.source_type:auth0
+  data.description:'Update an invitation'
+  data.details.request.auth.credentials.scopes:'update:tenant_invitations'
+  data.details.request.body.state:accepted
+  data.details.request.channel:'https://manage.auth0.com'
+  | groupbycount(data.user_id)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- informational_severity_alerts
+tags:
+- tactics.ta0001.initial_access
+- techniques.t1078.valid_accounts
+- source.auth0

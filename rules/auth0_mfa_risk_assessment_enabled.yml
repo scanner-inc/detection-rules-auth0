@@ -6,7 +6,7 @@ description: |-
 enabled: true
 severity: Informational
 query_text: |-
-  %ingest.source_type:auth0
+  %ingest.source_type:"auth0:audit"
   data.description:'Updates risk assessment configs'
   data.details.request.path:/api/v2/risk-assessment/config
   data.details.request.body.AfterAuthentication:true

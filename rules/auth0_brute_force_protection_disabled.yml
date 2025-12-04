@@ -20,7 +20,7 @@ severity: Medium
 query_text: |-
   %ingest.source_type:auth0
   data.type:sapi
-  data.details.request.path:/api/v2/attack-protection/brute-force-protection
+  data.details.request.path:"/api/v2/attack-protection/brute-force-protection"
   data.details.response.body.enabled:false
   | groupbycount(data.client_id)
   | where @q.count > 0

@@ -8,7 +8,7 @@ severity: Informational
 query_text: |-
   %ingest.source_type:auth0
   data.description:'Install an available integration'
-  data.details.request.path:/api/v2/integrations/installed
+  data.details.request.path:"/api/v2/integrations/installed"
   data.details.request.channel:'https://manage.auth0.com'
   | groupbycount(data.user_id)
   | where @q.count > 0

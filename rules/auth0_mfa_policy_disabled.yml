@@ -8,7 +8,7 @@ severity: High
 query_text: |-
   %ingest.source_type:auth0
   data.description:'Set the Multi-factor Authentication policies'
-  data.details.request.path:/api/v2/guardian/policies
+  data.details.request.path:"/api/v2/guardian/policies"
   data.details.request.body:"[]"
   data.details.request.channel:'https://manage.auth0.com'
   | groupbycount(data.user_id)

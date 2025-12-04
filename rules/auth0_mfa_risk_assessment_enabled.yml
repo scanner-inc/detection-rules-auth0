@@ -8,7 +8,7 @@ severity: Informational
 query_text: |-
   %ingest.source_type:auth0
   data.description:'Updates risk assessment configs'
-  data.details.request.path:/api/v2/risk-assessment/config
+  data.details.request.path:"/api/v2/risk-assessment/config"
   data.details.request.body.AfterAuthentication:true
   data.details.request.channel:'https://manage.auth0.com'
   | groupbycount(data.user_id)

@@ -6,7 +6,7 @@ enabled: true
 severity: Informational
 query_text: |-
   %ingest.source_type:auth0
-  data.details.request.path:(/api/v2/tenants/invitations /api/v2/organizations/*/invitations)
+  data.details.request.path:("/api/v2/tenants/invitations" "/api/v2/organizations/*/invitations")
   | groupbycount(data.user_id)
   | where @q.count > 0
 time_range_s: 300

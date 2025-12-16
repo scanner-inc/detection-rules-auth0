@@ -6,7 +6,7 @@ description: |-
 enabled: true
 severity: High
 query_text: |-
-  %ingest.source_type:auth0
+  @scnr.source_type:auth0
   data.description:'Updates risk assessment configs'
   data.details.request.path:"/api/v2/risk-assessment/config"
   data.details.request.body.AfterAuthentication:false

@@ -5,7 +5,7 @@ description: |-
 enabled: true
 severity: Medium
 query_text: |-
-  %ingest.source_type:auth0
+  @scnr.source_type:auth0
   data.type:(fp fu)
   | groupbycount(data.user_id)
   | where @q.count > 5

@@ -5,7 +5,7 @@ description: |-
 enabled: true
 severity: Informational
 query_text: |-
-  %ingest.source_type:auth0
+  @scnr.source_type:auth0
   data.description:'Update an invitation'
   data.details.request.auth.credentials.scopes:'update:tenant_invitations'
   data.details.request.body.state:accepted

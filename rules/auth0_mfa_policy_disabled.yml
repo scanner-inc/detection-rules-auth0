@@ -6,7 +6,7 @@ description: |-
 enabled: true
 severity: High
 query_text: |-
-  %ingest.source_type:auth0
+  @scnr.source_type:auth0
   data.description:'Set the Multi-factor Authentication policies'
   data.details.request.path:"/api/v2/guardian/policies"
   data.details.request.body:"[]"

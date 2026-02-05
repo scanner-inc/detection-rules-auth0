@@ -2,7 +2,6 @@
 name: Auth0 User Invitation Created
 description: |-
   Detect when user invitations are created in Auth0 for organizations or tenants.
-enabled: true
 severity: Informational
 query_text: |-
   @scnr.source_type:auth0

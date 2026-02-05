@@ -3,7 +3,6 @@ name: Auth0 MFA Policy Disabled
 description: |-
   Detect when MFA policies are disabled in Auth0. This can weaken
   security controls and should be monitored closely.
-enabled: true
 severity: High
 query_text: |-
   @scnr.source_type:auth0

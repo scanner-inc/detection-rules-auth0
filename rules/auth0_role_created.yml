@@ -4,7 +4,6 @@ description: |-
   Detect when a role is created in Auth0. Roles can be used to grant
   specific permissions and should be monitored for potential privilege
   escalation.
-enabled: true
 severity: High
 query_text: |-
   @scnr.source_type:auth0

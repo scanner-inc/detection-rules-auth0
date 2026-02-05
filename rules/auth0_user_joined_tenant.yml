@@ -2,7 +2,6 @@
 name: Auth0 User Joined Tenant
 description: |-
   Detect when a user joins an Auth0 tenant.
-enabled: true
 severity: Informational
 query_text: |-
   @scnr.source_type:auth0

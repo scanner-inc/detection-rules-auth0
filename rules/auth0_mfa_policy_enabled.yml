@@ -3,7 +3,6 @@ name: Auth0 MFA Policy Enabled
 description: |-
   Detect when MFA policies are enabled in Auth0. This is typically
   a positive security event that strengthens authentication controls.
-enabled: true
 severity: Informational
 query_text: |-
   @scnr.source_type:auth0

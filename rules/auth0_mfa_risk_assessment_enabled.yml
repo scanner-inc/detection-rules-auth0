@@ -3,7 +3,6 @@ name: Auth0 MFA Risk Assessment Enabled
 description: |-
   Detect when MFA risk assessment is enabled in Auth0. This is typically
   a positive security event that strengthens adaptive authentication controls.
-enabled: true
 severity: Informational
 query_text: |-
   @scnr.source_type:auth0

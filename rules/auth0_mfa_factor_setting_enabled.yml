@@ -4,7 +4,6 @@ description: |-
   Detect when MFA factor settings are enabled in Auth0. This is typically
   a positive security event but should be monitored to ensure proper
   configuration.
-enabled: true
 severity: Informational
 query_text: |-
   @scnr.source_type:auth0

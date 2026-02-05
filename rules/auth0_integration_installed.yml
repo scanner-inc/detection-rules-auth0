@@ -3,7 +3,6 @@ name: Auth0 Integration Installed
 description: |-
   Detect when an integration is installed in Auth0, which may
   introduce security risks.
-enabled: true
 severity: Informational
 query_text: |-
   @scnr.source_type:auth0

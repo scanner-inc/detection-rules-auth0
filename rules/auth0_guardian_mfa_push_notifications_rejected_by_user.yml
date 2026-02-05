@@ -3,7 +3,6 @@ name: Auth0 Guardian MFA Push Notifications Rejected by User
 description: |-
   Detect when multiple Auth0 Guardian multi-factor authentication (MFA)
   push notifications are rejected by a user.
-enabled: true
 severity: High
 query_text: |-
   @scnr.source_type:auth0
